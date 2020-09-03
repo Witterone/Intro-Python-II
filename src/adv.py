@@ -3,22 +3,28 @@ from player import player
 from item import Item
 # Declare all the rooms
 
-item = {'rope': Item("rope", """50 feet of strong supple rope used by 
-                     climbers, I wonder who forgot this?""",'5'),
+item = {'rope': Item("rope", """50 feet of strong supple rope used by climbers
+                     , I wonder who forgot this?""",'5'),
                      
-        'silver cup': Item("silver cup", """This old cup has seen
-                           better days but with a little care it could be 
-                           worth something""",'30'),
-        'fine shoes': Item("fine shoes", """High quality shoes that very few 
-                      afford. Who left these on a cliff, and why?""",'100'),
-        'coins': Item("coins","""Old gold coins from a distant land
-                      possibly from a treasure hoard.""","15"),
+        'silver cup': Item("silver cup", """This old cup has seen better 
+                           days\n
+                           but with a little care it could be worth something
+                           """,'30'),
+        'fine shoes': Item("fine shoes", """
+                      High quality shoes that very few afford. 
+                      Who left these on a cliff, and why?
+                      """,'100'),
+        'coins': Item("coins","""
+                      Old gold coins from a distant land,
+                      possibly from a treasure hoard.
+                      ""","15"),
                       
-        'dusty note': Item("dusty note", """The note reads (Whoever
-                           finds this I hope you will have more luck in the 
-                           future. The dragon's greed knows no end and the 
-                           king is a coward who only wants to keep the status
-                           quo. I doubt even this treasure will be enough to
+        'dusty note': Item("dusty note", """
+                           The note reads (Whoever finds this I hope you will
+                           have more luck in the future. 
+                           The dragon's greed knows no end and the king\n
+                           is a coward who only wants to keep the status quo. 
+                           I doubt even this treasure will be enough to
                            satisfy the beast.) 
                            """,0),
         'bills': Item("bills", """These bills are all past due and 
@@ -148,7 +154,8 @@ while direction != "q":
             print("You are just stopping in.")
     if cur_room==room['dragon']:
         input("press any key to talk to Bezos")
-        print(f"""The dragon Bezos asks {new_player.name} 'Why have you come?
+        print(f"""The dragon Bezos asks {new_player.name} 
+              'Why have you come?
               I am only seeking to add more wealth and I will destroy all who 
               seek to take it. Speak the truth or I will know you are a liar.''
               \n""")
@@ -180,7 +187,7 @@ while direction != "q":
         input("press any key to finish the game")
         direction = "q"
         quit()
-        
+        break
     
     direction = input("""Enter a command or direction to travel
                   (n)orth
@@ -235,8 +242,9 @@ while direction != "q":
                           (n)o
                           """)
                     if exmn =="y":
-                        i_exmn=input("What do you want to look at?")
-                        print(i_exmn.description)
+                        i_exmn=input("What do you want to look at?\n")
+                        print("\n",item[i_exmn].description)
+                        input("press any key to continue")
                     print(f"Back to {cur_room.name}.")
             elif action=="b" and cur_room.l_count==0:
                 print(f"You go back to the {cur_room.name}.")
